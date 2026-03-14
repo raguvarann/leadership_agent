@@ -8,6 +8,7 @@ from src.embeddings import get_embeddings
 from src.vector_store import build_index
 from src.retrieval import retrieve
 from src.llm import generate_answer
+from src.visualization import plot_chunk_distribution
 
 
 def main():
@@ -20,6 +21,8 @@ def main():
 
     for doc in docs:
         all_chunks.extend(chunk_text(doc, CHUNK_SIZE, CHUNK_OVERLAP))
+
+    plot_chunk_distribution(all_chunks)    
 
     print("Creating embeddings...")
     chunk_embeddings = get_embeddings(all_chunks, EMBEDDING_MODEL)

@@ -10,6 +10,7 @@ This project implements a Retrieval-Augmented Generation (RAG) system that:
 - Stores embeddings in a FAISS vector index
 - Retrieves relevant context for natural language questions
 - Generates concise, factual answers using GPT-4o-mini, grounded in the documents
+- Provides visualizations for data insights (e.g., chunk distributions)
 
 The system is designed for leadership-level strategic question answering, providing natural language outputs with appropriate details and report sections.
 
@@ -45,7 +46,7 @@ pip install -r requirements.txt
 python main.py
 ```
 
-This will process the documents in `data/sample_docs/` and answer the sample questions.
+This will process the documents in `data/sample_docs/`, generate visualizations, and answer the sample questions. Outputs (plots) are saved to the `outputs/` directory.
 
 ### Running the Notebook
 
@@ -53,7 +54,7 @@ Open `AI_Leadership_Insight_Agent.ipynb` in Jupyter and run the cells sequential
 
 - Code walkthrough
 - Sample outputs
-- Visualizations
+- Visualizations (chunk distribution plots)
 - Validation notes
 
 ## Sample Questions
@@ -81,18 +82,23 @@ Open `AI_Leadership_Insight_Agent.ipynb` in Jupyter and run the cells sequential
 
 ```
 .
-├── config.py                 # Configuration file with model names, paths, and API key (from env)
-├── main.py                   # Main script to run the agent
+├── .gitignore               # Git ignore file
+├── config.py                # Configuration file with model names, paths, and API key (from env)
+├── main.py                  # Main script to run the agent
 ├── AI_Leadership_Insight_Agent.ipynb  # Jupyter notebook demonstration
-├── requirements.txt          # Python dependencies
-├── readme.md                 # This file
+├── requirements.txt         # Python dependencies
+├── readme.md                # This file
+├── __pycache__/             # Python bytecode cache
 ├── data/
-│   └── sample_docs/          # Folder for company documents
+│   └── sample_docs/         # Folder for company documents
+├── outputs/                 # Generated visualizations and plots
 └── src/
-    ├── document_loader.py    # Document ingestion
+    ├── __pycache__/         # Python bytecode cache
+    ├── document_loader.py   # Document ingestion
     ├── chunking.py          # Text chunking
     ├── embeddings.py        # Embedding generation
-    ├── vector_store.py       # FAISS index building
-    ├── retrieval.py          # Context retrieval
-    └── llm.py                # Answer generation
+    ├── vector_store.py      # FAISS index building
+    ├── retrieval.py         # Context retrieval
+    ├── llm.py               # Answer generation
+    └── visualization.py     # Data visualization utilities
 ```
