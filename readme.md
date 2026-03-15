@@ -10,7 +10,7 @@ This project implements a Retrieval-Augmented Generation (RAG) system that:
 - Stores embeddings in a FAISS vector index
 - Retrieves relevant context for natural language questions
 - Generates concise, factual answers using GPT-4o-mini, grounded in the documents
-- Provides visualizations for data insights (e.g., chunk distributions)
+- Provides visualizations for data insights (chunk distributions)
 
 The system is designed for leadership-level strategic question answering, providing natural language outputs with appropriate details and report sections.
 
